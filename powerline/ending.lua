@@ -6,7 +6,8 @@ function ending.main(p)
 	return {{
 		foreground = p.theme.endingFg,
 		background = p.theme.endingBg,
-		text       = text
+		text       = text,
+		name       = 'ending'
 	}}
 end
 

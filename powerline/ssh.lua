@@ -10,7 +10,8 @@ function ssh.main(p)
 	return {{
 		foreground = p.theme.sshFg,
 		background = p.theme.sshBg,
-		text       = text
+		text       = text,
+		name       = 'ssh'
 	}}
 end
 

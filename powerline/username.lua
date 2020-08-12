@@ -6,7 +6,8 @@ function username.main(p)
 	return {{
 		foreground = p.theme.usernameFg,
 		background = p.theme.usernameBg,
-		text       = text
+		text       = text,
+		name       = 'username'
 	}}
 end
 

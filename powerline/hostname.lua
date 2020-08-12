@@ -5,7 +5,8 @@ function hostname.main(p)
 	return {{
 		foreground = p.theme.hostnameFg,
 		background = p.theme.hostnameBg,
-		text       = text
+		text       = text,
+		name       = 'hostname'
 	}}
 end
 

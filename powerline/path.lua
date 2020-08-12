@@ -6,7 +6,8 @@ function path.main(p)
 	return {{
 		foreground = p.theme.pathFg,
 		background = p.theme.pathBg,
-		text       = text
+		text       = text,
+		name       = 'path'
 	}}
 end
 

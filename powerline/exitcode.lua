@@ -86,7 +86,8 @@ function exitcode.main(p)
 	return {{
 		foreground = p.theme.exitcodeFg,
 		background = p.theme.exitcodeBg,
-		text       = text
+		text       = text,
+		name       = 'exitcode'
 	}}
 end
 

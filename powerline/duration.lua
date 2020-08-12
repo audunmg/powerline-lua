@@ -12,7 +12,7 @@ function duration.main(p)
 	elseif p.duration then
 		dur = math.floor(p.duration * 1000)
 	else
-		return { text = nil}
+		return {{ text = nil, name = 'duration', foreground = 0, background = 0}}
 	end
 
 	if not (dur == nil) then
@@ -40,7 +40,8 @@ function duration.main(p)
 	return {{
 		foreground = p.theme.durationFg,
 		background = p.theme.durationBg,
-		text       = text
+		text       = text,
+		name       = 'duration'
 	}}
 end
 

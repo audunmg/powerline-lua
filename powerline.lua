@@ -6,6 +6,7 @@ modules = {
 	"username",
 	"hostname",
 	"path",
+  "git",
 	"exitcode",
 }
 
@@ -30,6 +31,8 @@ params = {
   separator = '▒░',
 	condensed = false
 }
+
+params.cwd = os.getenv('PWD')
 
 if os.getenv('PL_CONDENSED') == "yes"  then
 	params.condensed = true
@@ -63,6 +66,14 @@ end
 
 -- build prompt
 for idz,segment in ipairs(segments) do
+	if segment.foreground == nil then
+		print("ERROR IN "..segment.name)
+		break
+	end
+	if segment.background == nil then
+		print("ERROR IN "..segment.name)
+		break
+	end
 	if not (idz  == 1) then
 		buffer = buffer .. fgbgColor( segments[idz-1].background, segment.background)
 		if not params.condensed then

@@ -42,10 +42,13 @@ if os.getenv('PL_SEPARATOR') == "none" then
 end
 
 for k,v in ipairs(arg) do
-	if (v == "-d") or (v == "--duration") then
+	if (v == "-d") or (v == "--duration") or (v == "-duration") then
 			params.duration = tonumber(arg[k+1])
 	end
-	if (v == "-e") or (v == "--exit-code") then
+	if (v == "-c") or (v == "--condensed") or (v == "-condensed") then
+			params.condensed = true
+	end
+	if (v == "-e") or (v == "--exit-code") or (v == "-error") then
 			params.exitcode = tonumber(arg[k+1])
 	end
 	if (v == "-m") or (v == "--modules") then

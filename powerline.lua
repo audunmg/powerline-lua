@@ -48,6 +48,12 @@ for k,v in ipairs(arg) do
 	if (v == "-e") or (v == "--exit-code") then
 			params.exitcode = tonumber(arg[k+1])
 	end
+	if (v == "-m") or (v == "--modules") then
+			modules = {}
+			for mod in string.gmatch(arg[k+1], "[^,]+") do
+				table.insert(modules,mod)
+			end
+	end
 end
 
 

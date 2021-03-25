@@ -25,7 +25,7 @@ function git.repoRoot()
 	return a
 end
 
-function git.repostats(p)
+function git.repostats()
 	local gitcommand = "git status --porcelain -b --ignore-submodules"
 	local a = git.runGitCommand(gitcommand)
 	local stats = {

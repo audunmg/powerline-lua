@@ -1,12 +1,12 @@
 #!/usr/bin/env lua
 
-modules = {
+local modules = {
 	"duration",
 	"ssh",
 	"username",
 	"hostname",
 	"path",
-  "git",
+	"git",
 	"exitcode",
 }
 
@@ -42,14 +42,20 @@ if os.getenv('PL_SEPARATOR') == "none" then
 end
 
 for k,v in ipairs(arg) do
-	if (v == "-d") or (v == "--duration") or (v == "-duration") then
+	if (v == "-d") or (v == "--duration") then
 			params.duration = tonumber(arg[k+1])
 	end
-	if (v == "-c") or (v == "--condensed") or (v == "-condensed") then
+	if (v == "-D") or (v == "--duration-milliseconds") then
+			params.duration = tonumber(arg[k+1]) * 1000
+	end
+	if (v == "-c") or (v == "--condensed") then
 			params.condensed = true
 	end
-	if (v == "-e") or (v == "--exit-code") or (v == "-error") then
+	if (v == "-e") or (v == "--exit-code") then
 			params.exitcode = tonumber(arg[k+1])
+	end
+	if (v == "-s") or (v == "--separator") then
+			params.separator = tonumber(arg[k+1])
 	end
 	if (v == "-m") or (v == "--modules") then
 			modules = {}

@@ -90,10 +90,11 @@ for idz,segment in ipairs(segments) do
 		break
 	end
 	if not (idz  == 1) then
-		buffer = buffer .. fgbgColor( segments[idz-1].background, segment.background)
+		buffer = buffer .. fgbgColor( segment.background, segments[idz-1].background )
 		if not params.condensed then
-			buffer = buffer .. "█" -- unicode 2588  █ full block
+			buffer = buffer .. " "
 		end
+		buffer = buffer .. fgbgColor( segments[idz-1].background, segment.background)
 	  buffer = buffer .. params.separator
 		if not params.condensed then
 			buffer = buffer .. " "

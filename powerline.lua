@@ -51,6 +51,9 @@ for k,v in ipairs(arg) do
 	if (v == "-c") or (v == "--condensed") then
 			params.condensed = true
 	end
+	if (v == "-H") or (v == "--hostcolor") then
+			params.theme.hostnameBg = tonumber(arg[k+1])
+	end
 	if (v == "-e") or (v == "--exit-code") then
 			params.exitcode = tonumber(arg[k+1])
 	end

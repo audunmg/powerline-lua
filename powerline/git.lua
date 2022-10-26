@@ -47,7 +47,7 @@ function git.repostats()
 		local k = string.sub(line,1,2)
 		if k == "##" then
 			if line:match('%.%.%.') then
-				for lBranch,rbranch,ahead,behind in line:gmatch('## (%S+)%.%.%.(%S+) ?%[?a?h?e?a?d? ?(%d*),? ?b?e?h?i?n?d? ?(%d*)%]?') do 
+				for lbranch,rbranch,ahead,behind in line:gmatch('## (%S+)%.%.%.(%S+) ?%[?a?h?e?a?d? ?(%d*),? ?b?e?h?i?n?d? ?(%d*)%]?') do 
 					stats.lbranch = lbranch
 					stats.rbranch = rbranch
 					stats.ahead = tonumber(ahead)

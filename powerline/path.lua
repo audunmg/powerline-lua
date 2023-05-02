@@ -1,8 +1,11 @@
 local path = {}
 
 function path.main(p)
-
-	text =  "\\w"
+    if params.path then
+        text = params.path
+    else
+    	text =  "\\w"
+    end
 	return {{
 		foreground = p.theme.pathFg,
 		background = p.theme.pathBg,

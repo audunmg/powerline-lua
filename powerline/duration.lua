@@ -14,12 +14,12 @@ function duration.main(p)
 	else
 		return {{ text = nil, name = 'duration', foreground = 0, background = 0}}
 	end
-
-	if not (dur == nil) then
+    
+	if not (dur == nil or dur == 0) then
 		h = math.floor(dur / hours)
 		m = math.floor(dur % hours / minutes)
 		s = math.floor(dur % minutes / seconds)
-		ms  = math.ceil(dur % seconds / milliseconds)
+		ms  = math.floor(dur % seconds / milliseconds)
 		-- print(string.format("%dh %dm %ds %dms", h,m,s,ms))
 		if dur > hours then
 			text = string.format("%dh %dm", h,m)

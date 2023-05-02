@@ -61,6 +61,10 @@ function _update_ps1() {
         __START=$(cat "$INTERACTIVE_BASHPID_TIMER");
         local __DURATIONMILLISECONDS="$( printf "%03i" $((__END - __START)))"
         [[ $__DURATIONMILLISECONDS =~ ([0-9]*)([0-9][0-9])$ ]] && __DURATION=${BASH_REMATCH[1]}.${BASH_REMATCH[2]}
+        # Update history with command results if the database exists.
+        if [ -e $HISTDB ] && [ -n "$__ERRCODE" ]; then
+            sqlite3 $HISTDB "UPDATE bashhistory SET return_value = ${__ERRCODE} , duration_msec = ${__DURATIONMILLISECONDS} WHERE (session_start == ${SESSION_START} and bash_pid == $$ and history_lineno == $(( HISTCMD - 1 )))"
+        fi
         rm -f "$INTERACTIVE_BASHPID_TIMER"
     fi
     PS1="\[\e]0;\h:\w\a\]$($LUA $POWERLINE_LUA_PATH/powerline.lua -e $__ERRCODE -d $__DURATION -m duration,ssh,hostname,path,git,exitcode )"

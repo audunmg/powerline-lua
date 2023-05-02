@@ -55,4 +55,7 @@ theme.RepoDirtyBg = 161
 theme.exitcodeFg = 15
 theme.exitcodeBg = 161
 
+theme.timeFg     = 254
+theme.timeBg     = 23
+
 return theme

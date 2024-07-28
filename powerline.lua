@@ -2,8 +2,8 @@
 
 local modules = {
     "duration",
+    "virtualenv",
     "ssh",
-    "username",
     "hostname",
     "path",
     "git",

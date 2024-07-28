@@ -1,28 +1,28 @@
 #!/usr/bin/env lua
 
 local modules = {
-	"duration",
-	"ssh",
-	"username",
-	"hostname",
-	"path",
-	"git",
-	"exitcode",
+    "duration",
+    "ssh",
+    "username",
+    "hostname",
+    "path",
+    "git",
+    "exitcode",
 }
 
 
 
 function fgColor(code)
-	return string.format("\\[\27[38;5;%dm\\]", code)
+    return string.format("\\[\27[38;5;%dm\\]", code)
 end
 function bgColor(code)
-	return string.format("\\[\27[48;5;%dm\\]", code)
+    return string.format("\\[\27[48;5;%dm\\]", code)
 end
 function fgbgColor(fg,bg)
-	return string.format("\\[\27[38;5;%d;48;5;%dm\\]", fg, bg )
+    return string.format("\\[\27[38;5;%d;48;5;%dm\\]", fg, bg )
 end
 function reset()
-	return "\\[\27[0m\\]"
+    return "\\[\27[0m\\]"
 end
 
 mods = {}

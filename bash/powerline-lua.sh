@@ -67,7 +67,7 @@ function _update_ps1() {
         fi
         rm -f "$INTERACTIVE_BASHPID_TIMER"
     fi
-    PS1="\[\e]0;\h:\w\a\]$($LUA $POWERLINE_LUA_PATH/powerline.lua -e $__ERRCODE -d $__DURATION -m duration,ssh,hostname,path,git,exitcode )"
+    PS1="\[\e]0;\h:\w\a\]$($LUA $POWERLINE_LUA_PATH/powerline.lua -e $__ERRCODE -d $__DURATION )"
     history -a
 }
 if [ "$TERM" != "linux" ] && [ -f "$POWERLINE_LUA_PATH/powerline.lua" ]; then

@@ -58,4 +58,7 @@ theme.exitcodeBg = 161
 theme.timeFg     = 254
 theme.timeBg     = 23
 
+theme.virtualenvFg = 16
+theme.virtualenvBg = 118
+
 return theme

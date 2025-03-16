@@ -62,8 +62,8 @@ function _update_ps1() {
         local __DURATIONMILLISECONDS="$( printf "%03i" $((__END - __START)))"
         [[ $__DURATIONMILLISECONDS =~ ([0-9]*)([0-9][0-9])$ ]] && __DURATION=${BASH_REMATCH[1]}.${BASH_REMATCH[2]}
         # Update history with command results if the database exists.
-        if [ -e $HISTDB ] && [ -n "$__ERRCODE" ]; then
-            sqlite3 $HISTDB "UPDATE bashhistory SET return_value = ${__ERRCODE} , duration_msec = ${__DURATIONMILLISECONDS} WHERE (session_start == ${SESSION_START} and bash_pid == $$ and history_lineno == $(( HISTCMD - 1 )))"
+        if [ -e $HISTDB ]; then
+            _historian_update "$__ERRCODE" "$__DURATIONMILLISECONDS" "$(( HISTCMD -1 ))"
         fi
         rm -f "$INTERACTIVE_BASHPID_TIMER"
     fi
